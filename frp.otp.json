@@ -1,0 +1,15 @@
+{
+    "domain": "zero.frp",
+    "BindAddress": "127.0.0.1:9000",
+    "Channel": {
+        "dev.web": {
+            "status": true,
+            "model": "bypass",
+            "secret": "EAMDK7P6HKOJFZXHQQ44QPDKDM4OIECCGW7VSMH4VE5WPX4WCRMQ",
+            "issuer": "dev.web",
+            "notify": null,
+            "blacklist": null,
+            "whitelist": null
+        }
+    }
+}
