@@ -11,6 +11,7 @@ import (
 	"os"
 	"os/signal"
 	"strings"
+	"sync"
 	"syscall"
 	"time"
 
@@ -72,6 +73,12 @@ func (s *Server) init() error {
 		plugin.OpNewProxy:    s.handleNewProxy,
 		plugin.OpCloseProxy:  s.handleCloseProxy,
 		plugin.OpNewWorkConn: s.handleNewWorkConnect,
+	}
+
+	for _, v := range s.cfg.Channel {
+		if nil == v.Lock {
+			v.Lock = new(sync.RWMutex)
+		}
 	}
 
 	return nil
